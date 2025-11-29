@@ -1,13 +1,11 @@
-package com.main.projetjeespringboot;
+package com.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ProjetJeeSpringbootApplication {
-
+public class Application {
     public static void main(String[] args) {
-        SpringApplication.run(ProjetJeeSpringbootApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }
