@@ -106,7 +106,7 @@
             </c:choose>
         </div>
 
-        <c:if test="${currentUser.employe_rank >= 2}">
+        <c:if test="${currentUser.employeRank >= 2}">
             <div class="actions-section">
                 <h2>⚙️ Actions</h2>
                 <div class="actions-grid">

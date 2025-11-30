@@ -36,7 +36,7 @@
     <div class="container container-wide">
         <div class="header-section">
             <h1>📄 Gestion des Fiches de Paie</h1>
-            <% if (currentUser.getEmploye_rank() >= 3) { %>
+            <% if (currentUser.getEmployeRank() >= 3) { %>
                 <a href="${pageContext.request.contextPath}/payslips/create" class="btn btn-primary">
                     + Créer une fiche de paie
                 </a>
@@ -131,7 +131,7 @@
                                                 class="btn btn-info btn-icon">👁️ Voir</a>
                                             <a href="${pageContext.request.contextPath}/payslips/print?id=${payslip.id}"
                                                 class="btn btn-warning btn-icon" target="_blank">🖨️ Imprimer</a>
-                                            <% if (currentUser.getEmploye_rank() >= 3) { %>
+                                            <% if (currentUser.getEmployeRank() >= 3) { %>
                                                 <form action="${pageContext.request.contextPath}/payslips/delete"
                                                     method="post" style="display: inline;"
                                                     onsubmit="return confirm('Voulez-vous vraiment supprimer cette fiche de paie ?');">

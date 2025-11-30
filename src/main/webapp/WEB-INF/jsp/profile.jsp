@@ -23,7 +23,6 @@
         <div class="navbar-user">
             <div class="navbar-links">
                 <a href="${pageContext.request.contextPath}/dashboard">Tableau de Bord</a>
-                <a href="${pageContext.request.contextPath}/projects">Mes Projets</a>
             </div>
             <div class="user-info">
                 <span class="user-name">

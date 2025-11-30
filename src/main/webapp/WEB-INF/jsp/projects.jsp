@@ -24,8 +24,6 @@
         <div class="navbar-brand">Gestion RH - Projets</div>
         <div class="navbar-links">
             <a href="${pageContext.request.contextPath}/dashboard">Tableau de bord</a>
-            <a href="${pageContext.request.contextPath}/users">Employés</a>
-            <a href="${pageContext.request.contextPath}/payslips">Fiches de Paie</a>
             <div class="user-info">
                 <span class="user-name">${sessionScope.currentUser.username}</span>
                 <span class="user-role">${sessionScope.currentUser.role.displayName}</span>
@@ -38,7 +36,7 @@
         <div class="header-section">
             <h1>📊 Gestion des Projets</h1>
             <div class="header-actions">
-                <% if (currentUser.getEmploye_rank() >= 2) { %>
+                <% if (currentUser.getEmployeRank() >= 2) { %>
                     <a href="${pageContext.request.contextPath}/projects/create" class="btn btn-primary">
                         + Créer un projet
                     </a>
@@ -135,7 +133,7 @@
                                 <a href="${pageContext.request.contextPath}/projects/view?id=${project.id}"
                                     class="btn btn-info btn-icon">👁️ Détails</a>
 
-                                <% if (currentUser.getEmploye_rank() >= 2) { %>
+                                <% if (currentUser.getEmployeRank() >= 2) { %>
                                     <a href="${pageContext.request.contextPath}/projects/edit?id=${project.id}"
                                         class="btn btn-warning btn-icon">✏️ Modifier</a>
 
