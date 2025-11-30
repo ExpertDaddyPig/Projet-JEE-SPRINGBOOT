@@ -64,6 +64,9 @@
         </dependency>
     </dependencies>
     <build>
+        <defaultGoal>spring-boot:run</defaultGoal>
+        <finalName>Projet JEE</finalName>
+
         <resources>
             <resource>
                 <directory>src/main/resources</directory>

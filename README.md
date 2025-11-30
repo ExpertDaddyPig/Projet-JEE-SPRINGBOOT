@@ -1,9 +1,4 @@
-# Projet JEE en utilisant SPRINGBOOT
+# Projet JEE avec SpringBoot
 
-On utilise springboot ici wouhouuuu
-
-(Pitié codez en anglais)
-
-Pour communiquer entre nous. Cliquez.
-
-https://discord.gg/SvUnbvwD
+Pour lancer le projet, il suffit de lancer cette commande:
+`mvn`
