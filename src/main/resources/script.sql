@@ -2,13 +2,13 @@ CREATE DATABASE IF NOT EXISTS rhdatabase;
 
 USE rhdatabase;
 
--- DROP TABLE IF EXISTS Departements;
+DROP TABLE IF EXISTS Departements;
 
--- DROP TABLE IF EXISTS Employees;
+DROP TABLE IF EXISTS Employees;
 
--- DROP TABLE IF EXISTS Projects;
+DROP TABLE IF EXISTS Projects;
 
--- DROP TABLE IF EXISTS Payslips;
+DROP TABLE IF EXISTS Payslips;
 
 CREATE TABLE
     IF NOT EXISTS Departements (
