@@ -47,8 +47,8 @@ public class ReportController {
         stats.put("employeesByRank", byRank);
 
         Map<String, Long> byDept = employees.stream()
-            .filter(e -> e.getDepartement_id() != null)
-            .collect(Collectors.groupingBy(e -> "Dept " + e.getDepartement_id(), Collectors.counting()));
+            .filter(e -> e.getDepartementId() != null)
+            .collect(Collectors.groupingBy(e -> "Dept " + e.getDepartementId(), Collectors.counting()));
         stats.put("employeesByDepartment", byDept);
 
         stats.put("employeesByProject", new HashMap<String, Long>());

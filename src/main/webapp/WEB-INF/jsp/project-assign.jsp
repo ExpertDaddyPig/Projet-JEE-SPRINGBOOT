@@ -79,11 +79,11 @@
                         <label for="emp_${emp.id}" class="employee-label">
                             <h4>
                                 <span class="checkbox-icon"></span>
-                                ${emp.first_name} ${emp.last_name}
+                                ${emp.firstName} ${emp.lastName}
                             </h4>
-                            <p>💼 ${emp.job_name}</p>
+                            <p>💼 ${emp.jobName}</p>
                             <p>📧 ${emp.email}</p>
-                            <p>🔢 ${emp.registration_number}</p>
+                            <p>🔢 ${emp.registrationNumber}</p>
                         </label>
                     </div>
                 </c:forEach>

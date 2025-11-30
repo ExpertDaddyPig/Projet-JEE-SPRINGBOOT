@@ -15,7 +15,7 @@ CREATE TABLE
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         departement_name VARCHAR(50),
         employees VARCHAR(1000),
-        employeesCount INT
+        employees_count INT NOT NULL DEFAULT 0
     );
 
 CREATE TABLE
@@ -33,9 +33,9 @@ CREATE TABLE
         email VARCHAR(100) NOT NULL UNIQUE,
         username VARCHAR(50) NOT NULL UNIQUE,
         password_hash VARCHAR(255) NOT NULL,
-        createdAt DATE,
-        lastLogin DATE,
-        isActive BOOLEAN,
+        created_at DATETIME,
+        last_login DATETIME,
+        is_active BOOLEAN,
         CONSTRAINT fk_departement_id FOREIGN KEY (departement_id) REFERENCES Departements (id),
         CONSTRAINT check_rank CHECK (employe_rank IN (1, 2, 3, 4))
     );
@@ -84,7 +84,7 @@ VALUES
         'admin@admin.com',
         'sys_admin',
         '$2a$12$b7Acw.axAnGB4Vhng1yPUOLtvC1GKx0nuz/IBALwrThaS6DH6YpaS', -- 12345678
-        CURRENT_TIMESTAMP(),
-        CURRENT_TIMESTAMP(),
+        CURDATE(),
+        CURDATE(),
         TRUE
     );

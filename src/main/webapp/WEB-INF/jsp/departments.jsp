@@ -69,7 +69,7 @@
                                                     <c:forEach var="id" items="${ids}" varStatus="status">
                                                         <c:forEach var="emp" items="${allEmployees}">
                                                             <c:if test="${String.valueOf(emp.id) == id}">
-                                                                ${emp.first_name} ${emp.last_name}
+                                                                ${emp.firstName} ${emp.lastName}
                                                                 <c:if test="${!status.last}">, </c:if>
                                                                 <c:set var="count" value="${count + 1}" />
                                                             </c:if>
@@ -115,7 +115,7 @@
                     <label class="form-label">Sélectionner les employés</label>
                     <select class="form-control" name="employeeIds" id="deptEmployees" multiple size="6" style="height: auto;">
                         <c:forEach var="emp" items="${allEmployees}">
-                            <option value="${emp.id}">${emp.first_name} ${emp.last_name} (${emp.job_name})</option>
+                            <option value="${emp.id}">${emp.firstName} ${emp.lastName} (${emp.jobName})</option>
                         </c:forEach>
                     </select>
                     <small style="color: #888; font-size: 12px;">Maintenir Ctrl (Windows) ou Cmd (Mac) pour sélectionner plusieurs.</small>

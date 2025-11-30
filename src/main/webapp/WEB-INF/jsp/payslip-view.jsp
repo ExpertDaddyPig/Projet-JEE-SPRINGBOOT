@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label>Employé</label>
-            <input type="text" class="form-control" value="${employee.first_name} ${employee.last_name} (ID: ${employee.id})" disabled>
+            <input type="text" class="form-control" value="${employee.firstName} ${employee.lastName} (ID: ${employee.id})" disabled>
         </div>
 
         <div class="form-group">

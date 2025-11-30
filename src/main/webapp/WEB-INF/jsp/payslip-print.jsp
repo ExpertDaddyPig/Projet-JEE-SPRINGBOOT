@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche de Paie - ${employee.first_name} ${employee.last_name}</title>
+    <title>Fiche de Paie - ${employee.firstName} ${employee.lastName}</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
     <script>
         const monthNames = [
@@ -36,15 +36,15 @@
                 <h3>👤 Informations Employé</h3>
                 <div class="info-line">
                     <span class="label">Nom complet:</span>
-                    <span class="value">${employee.first_name} ${employee.last_name}</span>
+                    <span class="value">${employee.firstName} ${employee.lastName}</span>
                 </div>
                 <div class="info-line">
                     <span class="label">Matricule:</span>
-                    <span class="value">${employee.registration_number}</span>
+                    <span class="value">${employee.registrationNumber}</span>
                 </div>
                 <div class="info-line">
                     <span class="label">Poste:</span>
-                    <span class="value">${employee.job_name}</span>
+                    <span class="value">${employee.jobName}</span>
                 </div>
                 <div class="info-line">
                     <span class="label">Email:</span>

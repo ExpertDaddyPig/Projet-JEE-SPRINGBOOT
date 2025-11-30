@@ -95,10 +95,10 @@
                     <div class="employees-list">
                         <c:forEach var="emp" items="${assignedEmployees}">
                             <div class="employee-card">
-                                <h4>${emp.first_name} ${emp.last_name}</h4>
+                                <h4>${emp.firstName} ${emp.lastName}</h4>
                                 <p>📧 ${emp.email}</p>
-                                <p>💼 ${emp.job_name}</p>
-                                <p>🔢 Matricule: ${emp.registration_number}</p>
+                                <p>💼 ${emp.jobName}</p>
+                                <p>🔢 Matricule: ${emp.registrationNumber}</p>
                             </div>
                         </c:forEach>
                     </div>

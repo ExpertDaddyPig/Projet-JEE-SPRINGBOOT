@@ -16,8 +16,8 @@ public class Departement {
     @Column(name = "employees", length = 1000, nullable = true)
     private String employees;
 
-    @Column(name = "employeesCount", nullable = true)
-    private Integer employeesCount;
+    @Column(name = "employees_count")
+    private Integer employeesCount = 0;
 
     public Departement() {
     }

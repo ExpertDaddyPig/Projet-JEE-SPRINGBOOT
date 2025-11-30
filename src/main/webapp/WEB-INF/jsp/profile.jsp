@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil de
-        <c:out value="${sessionScope.currentUser.first_name}" />
-        <c:out value="${sessionScope.currentUser.last_name}" />
+        <c:out value="${sessionScope.currentUser.firstName}" />
+        <c:out value="${sessionScope.currentUser.lastName}" />
     </title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -48,7 +48,7 @@
             <div class="info-grid">
                 <span class="info-label">Nom complet</span>
                 <span class="info-value">
-                    <c:out value="${sessionScope.currentUser.first_name} ${sessionScope.currentUser.last_name}" />
+                    <c:out value="${sessionScope.currentUser.firstName} ${sessionScope.currentUser.lastName}" />
                 </span>
 
                 <span class="info-label">Adresse e-mail</span>
@@ -73,14 +73,14 @@
             <div class="info-grid">
                 <span class="info-label">Matricule</span>
                 <span class="info-value">
-                    <c:out value="${sessionScope.currentUser.registration_number}" />
+                    <c:out value="${sessionScope.currentUser.registrationNumber}" />
                 </span>
 
                 <span class="info-label">Poste</span>
                 <span class="info-value">
                     <c:choose>
-                        <c:when test="${not empty sessionScope.currentUser.job_name}">
-                            <c:out value="${sessionScope.currentUser.job_name}" />
+                        <c:when test="${not empty sessionScope.currentUser.jobName}">
+                            <c:out value="${sessionScope.currentUser.jobName}" />
                         </c:when>
                         <c:otherwise>Non spécifié</c:otherwise>
                     </c:choose>
@@ -89,8 +89,8 @@
                 <span class="info-label">Département ID</span>
                 <span class="info-value">
                     <c:choose>
-                        <c:when test="${not empty sessionScope.currentUser.departement_id}">
-                            <c:out value="${sessionScope.currentUser.departement_id}" />
+                        <c:when test="${not empty sessionScope.currentUser.departementId}">
+                            <c:out value="${sessionScope.currentUser.departementId}" />
                         </c:when>
                         <c:otherwise>Non assigné</c:otherwise>
                     </c:choose>

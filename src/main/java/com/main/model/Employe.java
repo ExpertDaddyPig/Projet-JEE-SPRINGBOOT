@@ -1,6 +1,6 @@
 package com.main.model;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Random;
 import jakarta.persistence.*;
 
@@ -14,28 +14,28 @@ public class Employe {
     private int id;
 
     @Column(name = "first_name", length = 50, nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name", length = 50, nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "gender", length = 50, nullable = false)
     private String gender;
 
     @Column(name = "registration_number", length = 10, nullable = false)
-    private String registration_number;
+    private String registrationNumber;
 
     @Column(name = "departement_id", nullable = true)
-    private Integer departement_id;
+    private Integer departementId;
 
     @Column(name = "projects", length = 200, nullable = true)
     private String projects;
 
     @Column(name = "job_name", length = 100, nullable = true)
-    private String job_name;
+    private String jobName;
 
     @Column(name = "employe_rank", nullable = false)
-    private Integer employe_rank;
+    private Integer employeRank;
 
     @Column(name = "age", nullable = false)
     private int age;
@@ -43,52 +43,56 @@ public class Employe {
     @Column(name = "username", length = 50, nullable = false)
     private String username;
 
+    @Transient
+    private String password;
+
     @Column(name = "password_hash", length = 255, nullable = false)
-    private String password_hash;
+    private String passwordHash;
 
     @Column(name = "email", length = 50, nullable = false)
     private String email;
 
-    @Column(name = "isActive", nullable = false)
+    @Column(name = "is_active", nullable = false)
     private boolean isActive;
 
-    @Column(name = "createdAt")
-    private LocalDate createdAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
-    @Column(name = "lastLogin")
-    private LocalDate lastLogin;
+    @Column(name = "last_login")
+    private LocalDateTime lastLogin;
 
     @Transient
     private Role role;
 
     public Employe() {
         this.isActive = true;
-        this.createdAt = LocalDate.now();
+        this.createdAt = LocalDateTime.now();
     }
 
     public Employe(String first_name, String last_name, String email, String gender, int employe_rank, int age) {
-        this.first_name = first_name;
-        this.last_name = last_name;
+        this.firstName = first_name;
+        this.lastName = last_name;
         this.email = email;
         this.gender = gender;
         this.age = age;
-        this.employe_rank = employe_rank;
-        this.registration_number = generateRegistrationNumber();
+        this.employeRank = employe_rank;
+        this.registrationNumber = generateRegistrationNumber();
     }
 
-    public Employe(String first_name, String last_name, String email, String gender, String job_name, int departement_id,
-                   int employe_rank, int age) {
+    public Employe(String first_name, String last_name, String email, String gender, String job_name,
+            int departement_id,
+            int employe_rank, int age) {
         this(first_name, last_name, email, gender, employe_rank, age);
-        this.job_name = job_name;
-        this.departement_id = departement_id;
+        this.jobName = job_name;
+        this.departementId = departement_id;
     }
 
     public Employe(String first_name, String last_name, String email, String gender, String job_name, int projects_id[],
-                   int departement_id, int employe_rank, int age) {
+            int departement_id, int employe_rank, int age) {
         this(first_name, last_name, email, gender, employe_rank, age);
-        this.job_name = job_name;
-        this.departement_id = departement_id;
-        this.employe_rank = employe_rank;
+        this.jobName = job_name;
+        this.departementId = departement_id;
+        this.employeRank = employe_rank;
         StringBuilder projectsIdStrings = new StringBuilder();
         if (projects_id != null) {
             for (int project_id : projects_id) {
@@ -109,28 +113,36 @@ public class Employe {
         return generated.toString();
     }
 
-    public int getId() {
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFirstName(String first_name) {
+        this.firstName = first_name;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setLastName(String last_name) {
+        this.lastName = last_name;
     }
 
     public int getAge() {
@@ -141,13 +153,13 @@ public class Employe {
         this.age = age;
     }
 
-    public Integer getEmploye_rank() {
-        return employe_rank;
+    public Integer getEmployeRank() {
+        return employeRank;
     }
 
-    public void setEmploye_rank(Integer employe_rank) {
-        this.employe_rank = employe_rank;
-        this.role = null; 
+    public void setEmployeRank(Integer employe_rank) {
+        this.employeRank = employe_rank;
+        this.role = null;
     }
 
     public String getGender() {
@@ -158,20 +170,24 @@ public class Employe {
         this.gender = gender;
     }
 
-    public String getJob_name() {
-        return job_name;
+    public String getJobName() {
+        return jobName;
     }
 
-    public void setJob_name(String job_name) {
-        this.job_name = job_name;
+    public void setJobName(String job_name) {
+        this.jobName = job_name;
     }
 
-    public String getRegistration_number() {
-        return registration_number;
+    public String getRegistrationNumber() {
+        return registrationNumber;
     }
 
-    public void setRegistration_number(String registration_number) {
-        this.registration_number = registration_number;
+    public void setRegistrationNumber(String registration_number) {
+        this.registrationNumber = registration_number;
+    }
+
+    public void initRegistrationNumber() {
+        setRegistrationNumber(generateRegistrationNumber());
     }
 
     public String getUsername() {
@@ -182,12 +198,12 @@ public class Employe {
         this.username = username;
     }
 
-    public String getPassword_hash() {
-        return password_hash;
+    public String getPasswordHash() {
+        return passwordHash;
     }
 
-    public void setPassword_hash(String password) {
-        this.password_hash = password;
+    public void setPasswordHash(String password) {
+        this.passwordHash = password;
     }
 
     public String getEmail() {
@@ -199,8 +215,8 @@ public class Employe {
     }
 
     public Role getRole() {
-        if (role == null && employe_rank != null) {
-            switch (employe_rank) {
+        if (role == null && employeRank != null) {
+            switch (employeRank) {
                 case 2:
                     setRole(Role.CHEF_PROJET);
                     break;
@@ -230,28 +246,28 @@ public class Employe {
         this.isActive = active;
     }
 
-    public LocalDate getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDate createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDate getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(LocalDate lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 
     public void setDepartement_id(int departement_id) {
-        this.departement_id = departement_id;
+        this.departementId = departement_id;
     }
 
-    public Integer getDepartement_id() {
-        return departement_id;
+    public Integer getDepartementId() {
+        return departementId;
     }
 
     public String getProjects() {

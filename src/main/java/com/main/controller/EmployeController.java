@@ -34,12 +34,20 @@ public class EmployeController {
     }
 
     @PostMapping("/add")
-    public String add(@ModelAttribute Employe employe, @RequestParam(value = "projects", required = false) int[] projectIds) {
+    public String add(@ModelAttribute Employe employe, @RequestParam("departement") Integer departementId, @RequestParam(value = "projects", required = false) int[] projectIds) {
+        employe.setEmployeRank(employe.getRole().getLevel());
+        employe.setDepartement_id(departementId);
+        employe.initRegistrationNumber();
         if (projectIds != null) {
             StringBuilder sb = new StringBuilder();
             for (int id : projectIds) sb.append(id).append("|");
         }
-        employeService.save(employe);
+        try {
+            employeService.save(employe);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/users";
+        }
         return "redirect:/users?success=add";
     }
 

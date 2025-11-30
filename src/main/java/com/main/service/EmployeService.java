@@ -34,8 +34,8 @@ public class EmployeService {
     }
 
     public Employe save(Employe employe) {
-        if (employe.getPassword_hash() != null && !employe.getPassword_hash().isEmpty() && !employe.getPassword_hash().startsWith("$2a$")) {
-            employe.setPassword_hash(passwordEncoder.encode(employe.getPassword_hash()));
+        if (employe.getPassword() != null && !employe.getPassword().isEmpty()) {
+            employe.setPasswordHash(passwordEncoder.encode(employe.getPassword()));
         }
         return employeRepository.save(employe);
     }
